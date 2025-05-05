@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>reCAPTCHA v2</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      function onSubmit(token) {
+        // Send token to parent LWC/Aura component via postMessage
+        window.parent.postMessage({ captchaToken: token }, "*");
+      }
+    </script>
+    <style>
+      body { font-family: Arial; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="g-recaptcha"
+           data-sitekey="6LfZlS0rAAAAANKt5g0Rqb9pb76VzSw1JzkPmLzA"
+           data-callback="onSubmit"
+           data-size="normal">
+      </div>
+    </form>
+  </body>
+</html>
